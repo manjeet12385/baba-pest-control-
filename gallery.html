@@ -144,6 +144,25 @@
         .modal-active {
             overflow: hidden;
         }
+        /* ===== GLOBAL RESPONSIVE FIXES ===== */
+        * { box-sizing: border-box; }
+        img { max-width: 100%; height: auto; }
+        html, body { overflow-x: hidden; }
+        section { width: 100%; overflow-x: hidden; }
+        #mobile-drawer { width: 100%; }
+
+        @media (max-width: 480px) {
+            #quote-modal > div,
+            #estimator-modal > div,
+            #service-detail-modal > div {
+                max-width: 100%;
+                border-radius: 16px;
+                margin: 8px;
+            }
+        }
+        @media (max-width: 360px) {
+            header .h-20 { height: 60px !important; }
+        }
     </style>
 </head>
 <body class="bg-background text-on-background min-h-screen flex flex-col antialiased selection:bg-danger-red selection:text-white">
@@ -250,7 +269,7 @@
     </div>
 
     <!-- Mobile Navigation Drawer -->
-    <div id="mobile-drawer" class="hidden md:hidden bg-surface-white border-b border-subtle-gray px-margin-desktop py-6 space-y-3 shadow-lg animate-fadeIn">
+    <div id="mobile-drawer" class="hidden md:hidden bg-surface-white border-b border-subtle-gray px-4 sm:px-margin-desktop py-6 space-y-3 shadow-lg animate-fadeIn">
         <a class="block text-danger-red font-bold py-2 border-b border-subtle-gray" href="index.html" onclick="toggleMobileMenu()">Home</a>
         
         <!-- Mobile Services Accordion -->
@@ -294,8 +313,8 @@
     </div>
 </header>
 
-<main class="min-h-screen bg-surface-container py-12 md:py-20">
-    <div class="max-w-7xl mx-auto px-4 md:px-8">
+<main class="min-h-screen bg-surface-container py-8 sm:py-12 md:py-20">
+    <div class="max-w-7xl mx-auto px-3 sm:px-4 md:px-8">
         <div class="text-center mb-12">
             <h1 class="text-4xl md:text-5xl font-black text-deep-navy mb-4">Media Gallery</h1>
             <p class="text-lg text-secondary">Real footage of our clinical treatments</p>

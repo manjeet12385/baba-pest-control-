@@ -144,6 +144,138 @@
         .modal-active {
             overflow: hidden;
         }
+        /* ===== GLOBAL RESPONSIVE FIXES ===== */
+        * { box-sizing: border-box; }
+        img { max-width: 100%; height: auto; }
+
+        /* Prevent horizontal overflow on all devices */
+        html, body { overflow-x: hidden; }
+
+        /* Mobile: ensure sections don't overflow */
+        section { width: 100%; overflow-x: hidden; }
+
+        /* Fix mega dropdown not going off-screen on tablets */
+        @media (max-width: 1024px) {
+            .group:hover .absolute.w-\[560px\] {
+                width: 90vw;
+                max-width: 480px;
+                left: -50px;
+            }
+        }
+
+        /* Mobile nav drawer full width */
+        #mobile-drawer {
+            width: 100%;
+        }
+
+        /* Hero: readable text on small screens */
+        @media (max-width: 480px) {
+            .hero-badge { font-size: 10px; padding: 4px 10px; }
+        }
+
+        /* Action images: equal height on all screens */
+        @media (max-width: 640px) {
+            .action-img-grid > div {
+                height: 220px !important;
+            }
+        }
+
+        /* Gallery: prevent col-span-2 overflow on small mobile */
+        @media (max-width: 480px) {
+            .gallery-wide { grid-column: span 1 !important; }
+        }
+
+        /* Price estimator banner: stack on mobile */
+        @media (max-width: 640px) {
+            .estimator-banner-row {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+            .estimator-banner-row > div { justify-content: center; }
+        }
+
+        /* Floating action buttons: smaller on very small screens */
+        @media (max-width: 380px) {
+            .floating-btns { bottom: 12px; right: 12px; gap: 8px; }
+            .floating-btns a { padding: 10px; }
+            .floating-btns a span.material-symbols-outlined { font-size: 20px; }
+        }
+
+        /* Footer grid: stack properly */
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr 1fr !important; }
+        }
+        @media (max-width: 480px) {
+            .footer-grid { grid-template-columns: 1fr !important; }
+        }
+
+        /* Modal: full screen on small mobile */
+        @media (max-width: 480px) {
+            #quote-modal > div,
+            #estimator-modal > div,
+            #service-detail-modal > div {
+                max-width: 100%;
+                border-radius: 16px;
+                margin: 8px;
+            }
+        }
+
+        /* Recognition section: fix min-height on mobile */
+        @media (max-width: 768px) {
+            .recognition-award-card {
+                min-height: 300px !important;
+            }
+        }
+
+        /* Secondary services pill: stack on mobile */
+        @media (max-width: 640px) {
+            .services-pill-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* Team modal grid: single column on mobile */
+        @media (max-width: 480px) {
+            #team-modal .grid-cols-3,
+            #team-modal .sm\:grid-cols-3 {
+                grid-template-columns: 1fr;
+            }
+            #team-modal .grid-cols-2,
+            #team-modal .sm\:grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Careers modal: responsive grid */
+        @media (max-width: 480px) {
+            #careers-modal .grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Testimonials: 2-col on tablet */
+        @media (min-width: 640px) and (max-width: 900px) {
+            .testimonials-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+
+        /* FAQ: Better spacing on mobile */
+        @media (max-width: 480px) {
+            .faq-question-text { font-size: 13px; }
+        }
+
+        /* Contact form grid: 1 col on extra small */
+        @media (max-width: 400px) {
+            .contact-form-grid { grid-template-columns: 1fr !important; }
+        }
+
+        /* Logo: smaller on very small screens */
+        @media (max-width: 360px) {
+            header .h-20 { height: 60px !important; }
+            .logo-text-main { font-size: 16px !important; }
+            .logo-text-sub { font-size: 8px !important; }
+        }
     </style>
 </head>
 <body class="bg-background text-on-background min-h-screen flex flex-col antialiased selection:bg-danger-red selection:text-white">
@@ -297,7 +429,7 @@
 
 <main class="flex-grow" id="home">
     <!-- Hero Section -->
-    <section class="relative w-full min-h-[580px] md:h-[620px] flex items-center justify-center overflow-hidden bg-deep-navy">
+    <section class="relative w-full min-h-[520px] sm:min-h-[580px] md:h-[620px] flex items-center justify-center overflow-hidden bg-deep-navy">
         <!-- User Provided Hero Action Image Background -->
         <div class="absolute inset-0 z-0 opacity-40">
             <img alt="Pest Control Hero Spray Action" class="w-full h-full object-cover object-center filter brightness-90 saturate-125" src="images/fogging_action.png">
@@ -305,9 +437,9 @@
         <!-- Gradient Overlay for readability -->
         <div class="absolute inset-0 z-0 bg-gradient-to-t from-deep-navy via-deep-navy/80 to-deep-navy/40"></div>
 
-        <div class="relative z-10 max-w-container-max mx-auto px-margin-desktop text-center text-surface-white py-16">
+        <div class="relative z-10 max-w-container-max mx-auto px-4 sm:px-margin-desktop text-center text-surface-white py-12 sm:py-16">
             <!-- Badge -->
-            <div class="inline-flex items-center gap-2 bg-surface-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide text-surface-white mb-6 border border-white/20">
+            <div class="hero-badge inline-flex items-center gap-2 bg-surface-white/10 backdrop-blur-md px-3 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-semibold tracking-wide text-surface-white mb-4 sm:mb-6 border border-white/20">
                 <span class="material-symbols-outlined text-danger-red text-sm">verified</span>
                 Government Certified Pest Control Service
             </div>
@@ -333,7 +465,7 @@
             </div>
 
             <!-- Stats Bar -->
-            <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto border-t border-white/10 pt-6">
+            <div class="mt-10 sm:mt-14 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto border-t border-white/10 pt-6">
                 <div>
                     <div class="text-2xl md:text-3xl font-extrabold text-white">25+</div>
                     <div class="text-xs text-slate-300 mt-0.5">Years Experience</div>
@@ -355,14 +487,14 @@
     </section>
 
     <!-- Comprehensive Defense Systems (Bento Grid) -->
-    <section class="py-16 md:py-24 bg-surface max-w-container-max mx-auto px-margin-desktop" id="services">
+    <section class="py-12 md:py-24 bg-surface max-w-container-max mx-auto px-4 sm:px-margin-desktop" id="services">
         <div class="text-center mb-14">
             <span class="text-danger-red font-bold text-xs uppercase tracking-widest bg-danger-red/10 px-3 py-1 rounded-full">Targeted Treatments</span>
             <h2 class="font-headline-lg text-2xl md:text-4xl text-deep-navy font-bold mb-4 mt-2">Comprehensive Defense Systems</h2>
             <p class="font-body-md text-body-md text-secondary max-w-2xl mx-auto">Targeted solutions for every type of threat. Our clinical approach guarantees complete removal and long-term protection.</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             <!-- Service 1 -->
             <div onclick="openServiceDetail('termite')" class="glass-card rounded-xl flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl cursor-pointer group relative overflow-hidden">
                 <div class="absolute top-0 left-0 w-full h-1 bg-tertiary-container group-hover:bg-danger-red transition-colors"></div>
@@ -425,7 +557,7 @@
         </div>
 
         <!-- Secondary Services Quick Pills -->
-        <div class="mt-12 bg-surface-white p-6 rounded-2xl border border-subtle-gray shadow-sm flex flex-wrap items-center justify-between gap-4">
+        <div class="services-pill-row mt-10 sm:mt-12 bg-surface-white p-4 sm:p-6 rounded-2xl border border-subtle-gray shadow-sm flex flex-wrap items-center justify-between gap-4">
             <div class="flex items-center gap-3">
                 <span class="material-symbols-outlined text-danger-red text-2xl">verified_user</span>
                 <div>
@@ -440,8 +572,8 @@
     </section>
 
     <!-- Services in Action (Asymmetric Layout using User's Real Field Images) -->
-    <section class="py-16 md:py-24 bg-surface-white border-y border-subtle-gray" id="action">
-        <div class="max-w-container-max mx-auto px-margin-desktop">
+    <section class="py-12 md:py-24 bg-surface-white border-y border-subtle-gray" id="action">
+        <div class="max-w-container-max mx-auto px-4 sm:px-margin-desktop">
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/2">
                     <span class="text-danger-red font-bold text-xs uppercase tracking-widest bg-danger-red/10 px-3 py-1 rounded-full">On-Site Mastery</span>
@@ -481,8 +613,8 @@
                 </div>
 
                 <!-- User Provided Action Images (Image 4 & Image 5) -->
-                <div class="md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-                    <div class="group relative rounded-2xl overflow-hidden shadow-xl border-4 border-white bg-slate-100 h-72">
+                <div class="action-img-grid md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+                    <div class="group relative rounded-2xl overflow-hidden shadow-xl border-4 border-white bg-slate-100 h-56 sm:h-64 md:h-72">
                         <img alt="Baba Pest Control Field Team Work 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="images/team_work_1.png">
                         <div class="absolute inset-0 bg-gradient-to-t from-deep-navy/80 via-transparent to-transparent flex items-end p-4">
                             <span class="text-xs text-white font-medium flex items-center gap-1">
@@ -490,7 +622,7 @@
                             </span>
                         </div>
                     </div>
-                    <div class="group relative rounded-2xl overflow-hidden shadow-xl border-4 border-white bg-slate-100 h-72">
+                    <div class="group relative rounded-2xl overflow-hidden shadow-xl border-4 border-white bg-slate-100 h-56 sm:h-64 md:h-72">
                         <img alt="Baba Pest Control Field Team Work 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="images/team_work_2.png">
                         <div class="absolute inset-0 bg-gradient-to-t from-deep-navy/80 via-transparent to-transparent flex items-end p-4">
                             <span class="text-xs text-white font-medium flex items-center gap-1">
@@ -506,8 +638,8 @@
     
 
     <!-- Why Choose Us & Lead Gen -->
-    <section class="py-16 md:py-24 bg-surface relative overflow-hidden" id="why-us">
-        <div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-16 relative z-10 items-center">
+    <section class="py-12 md:py-24 bg-surface relative overflow-hidden" id="why-us">
+        <div class="max-w-container-max mx-auto px-4 sm:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 relative z-10 items-center">
             <div>
                 <span class="text-danger-red font-bold text-xs uppercase tracking-widest bg-danger-red/10 px-3 py-1 rounded-full">Our Promise</span>
                 <h2 class="font-headline-lg text-2xl md:text-4xl text-deep-navy font-bold mb-8 mt-3">Why Choose Baba Pest Control?</h2>
@@ -549,7 +681,7 @@
             </div>
 
             <!-- Lead Generation Form ("Request For Control") -->
-            <div class="bg-surface-white p-8 rounded-2xl shadow-xl border border-subtle-gray relative overflow-hidden" id="contact">
+            <div class="bg-surface-white p-5 sm:p-8 rounded-2xl shadow-xl border border-subtle-gray relative overflow-hidden" id="contact">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-danger-red/10 rounded-bl-full -z-0 pointer-events-none"></div>
                 <div class="relative z-10">
                     <div class="flex items-center justify-between mb-2">
@@ -566,7 +698,7 @@
                             <input required id="lead-name" class="w-full bg-surface border border-subtle-gray rounded-lg px-4 py-3 font-body-md text-deep-navy text-sm focus:border-danger-red focus:ring-1 focus:ring-danger-red transition-colors" placeholder="e.g. Rahul Sharma" type="text">
                         </div>
                         
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="contact-form-grid grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label class="block font-label-sm text-xs text-deep-navy font-bold mb-1 uppercase tracking-wider">Phone Number *</label>
                                 <input required id="lead-phone" class="w-full bg-surface border border-subtle-gray rounded-lg px-4 py-3 font-body-md text-deep-navy text-sm focus:border-danger-red focus:ring-1 focus:ring-danger-red transition-colors" placeholder="+91 98765 00000" type="tel">
@@ -606,17 +738,17 @@
     </section>
 
     <!-- Team & Excellence / Additional Action (User's Award & Team Images Showcase) -->
-    <section class="py-16 md:py-24 bg-surface-white border-t border-subtle-gray" id="recognition">
-        <div class="max-w-container-max mx-auto px-margin-desktop">
+    <section class="py-12 md:py-24 bg-surface-white border-t border-subtle-gray" id="recognition">
+        <div class="max-w-container-max mx-auto px-4 sm:px-margin-desktop">
             <div class="text-center mb-14">
                 <span class="text-danger-red font-bold text-xs uppercase tracking-widest bg-danger-red/10 px-3 py-1 rounded-full">Honors & Field Crew</span>
                 <h2 class="font-headline-lg text-2xl md:text-4xl text-deep-navy font-bold mb-4 mt-2">Our Elite Squad & Recognition</h2>
                 <p class="font-body-md text-body-md text-secondary max-w-2xl mx-auto">Backed by industry awards, BNI Champions recognition, and rigorous field training.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6">
                 <!-- Awards Feature Card (Uses User Provided Award Ceremony Image - Image 3) -->
-                <div class="md:col-span-5 rounded-2xl overflow-hidden relative group border border-subtle-gray shadow-md bg-deep-navy min-h-[420px] flex flex-col justify-end">
+                <div class="recognition-award-card md:col-span-5 rounded-2xl overflow-hidden relative group border border-subtle-gray shadow-md bg-deep-navy min-h-[300px] sm:min-h-[420px] flex flex-col justify-end">
                     <img alt="Award of Excellence - Baba Pest Control Leadership" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="images/award_ceremony.png">
                     <!-- Overlay Gradient -->
                     <div class="absolute inset-0 bg-gradient-to-t from-deep-navy via-deep-navy/40 to-transparent"></div>
@@ -631,9 +763,9 @@
                 </div>
 
                 <!-- Team Grid (Uses User Provided Real Images 2, 4, 5) -->
-                <div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <!-- Grid Item 1: User Image 2 (Fogging Action) -->
-                    <div class="rounded-2xl overflow-hidden border border-subtle-gray shadow-sm relative group bg-slate-100 h-52">
+                    <div class="rounded-2xl overflow-hidden border border-subtle-gray shadow-sm relative group bg-slate-100 h-44 sm:h-52">
                         <img alt="Baba Pest Control Thermal Fogger Action" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="images/fogging_action.png">
                         <div class="absolute inset-0 bg-gradient-to-t from-deep-navy/70 via-transparent to-transparent flex items-end p-3">
                             <span class="text-xs text-white font-medium flex items-center gap-1">
@@ -643,7 +775,7 @@
                     </div>
 
                     <!-- Grid Item 2: User Image 4 (Technicians at Work) -->
-                    <div class="rounded-2xl overflow-hidden border border-subtle-gray shadow-sm relative group bg-slate-100 h-52">
+                    <div class="rounded-2xl overflow-hidden border border-subtle-gray shadow-sm relative group bg-slate-100 h-44 sm:h-52">
                         <img alt="Certified Field Technicians" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="images/team_work_1.png">
                         <div class="absolute inset-0 bg-gradient-to-t from-deep-navy/70 via-transparent to-transparent flex items-end p-3">
                             <span class="text-xs text-white font-medium flex items-center gap-1">
@@ -653,7 +785,7 @@
                     </div>
 
                     <!-- Grid Item 3: User Image 5 (Technician Selfie with Equipment) -->
-                    <div class="rounded-2xl overflow-hidden border border-subtle-gray shadow-sm relative group bg-slate-100 h-52">
+                    <div class="rounded-2xl overflow-hidden border border-subtle-gray shadow-sm relative group bg-slate-100 h-44 sm:h-52">
                         <img alt="Field Crew Ready with Equipment" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="images/team_work_2.png">
                         <div class="absolute inset-0 bg-gradient-to-t from-deep-navy/70 via-transparent to-transparent flex items-end p-3">
                             <span class="text-xs text-white font-medium flex items-center gap-1">
@@ -663,7 +795,7 @@
                     </div>
 
                     <!-- Grid Item 4: Quality Guarantee Card -->
-                    <div class="rounded-2xl border border-subtle-gray shadow-sm p-6 bg-gradient-to-br from-deep-navy to-slate-800 text-white flex flex-col justify-between h-52">
+                    <div class="rounded-2xl border border-subtle-gray shadow-sm p-4 sm:p-6 bg-gradient-to-br from-deep-navy to-slate-800 text-white flex flex-col justify-between h-44 sm:h-52">
                         <div>
                             <span class="text-danger-red font-bold text-[11px] uppercase tracking-wider bg-white/10 px-2 py-0.5 rounded">Service Guarantee</span>
                             <h4 class="text-lg font-bold mt-2">100% Protection Warranty</h4>
@@ -677,7 +809,7 @@
             </div>
         </div>
     <!-- FAQ Section -->
-    <section class="py-16 md:py-24 bg-surface max-w-container-max mx-auto px-margin-desktop border-t border-subtle-gray" id="faq">
+    <section class="py-12 md:py-24 bg-surface max-w-container-max mx-auto px-4 sm:px-margin-desktop border-t border-subtle-gray" id="faq">
         <div class="text-center mb-14">
             <span class="text-danger-red font-bold text-xs uppercase tracking-widest bg-danger-red/10 px-3 py-1 rounded-full">Common Queries</span>
             <h2 class="font-headline-lg text-2xl md:text-4xl text-deep-navy font-bold mb-4 mt-2">Frequently Asked Questions</h2>
@@ -758,9 +890,9 @@
     </section>
 
     <!-- Interactive Price Estimator Banner -->
-    <section class="py-12 bg-deep-navy text-white relative overflow-hidden">
-        <div class="max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
-            <div class="flex items-center gap-4">
+    <section class="py-10 sm:py-12 bg-deep-navy text-white relative overflow-hidden">
+        <div class="max-w-container-max mx-auto px-4 sm:px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6 relative z-10 text-center md:text-left">
+            <div class="flex items-center gap-4 justify-center md:justify-start">
                 <div class="w-14 h-14 rounded-2xl bg-danger-red flex items-center justify-center shrink-0">
                     <span class="material-symbols-outlined text-3xl">calculate</span>
                 </div>
@@ -769,11 +901,11 @@
                     <p class="text-xs text-slate-300">Calculate estimated cost for your flat, villa, or office in 30 seconds.</p>
                 </div>
             </div>
-            <div class="flex items-center gap-3">
-                <button onclick="openEstimatorModal()" class="bg-danger-red hover:bg-white hover:text-danger-red text-white font-bold px-6 py-3 rounded-full text-xs transition-colors flex items-center gap-2 shadow-lg">
+            <div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto justify-center">
+                <button onclick="openEstimatorModal()" class="w-full sm:w-auto bg-danger-red hover:bg-white hover:text-danger-red text-white font-bold px-6 py-3 rounded-full text-xs transition-colors flex items-center justify-center gap-2 shadow-lg">
                     Launch Price Calculator <span class="material-symbols-outlined text-sm">bolt</span>
                 </button>
-                <a href="tel:+919876543210" class="border border-white/30 hover:bg-white/10 text-white font-semibold px-6 py-3 rounded-full text-xs transition-colors flex items-center gap-2">
+                <a href="tel:+919876543210" class="w-full sm:w-auto border border-white/30 hover:bg-white/10 text-white font-semibold px-6 py-3 rounded-full text-xs transition-colors flex items-center justify-center gap-2">
                     <span class="material-symbols-outlined text-sm">call</span> Call Expert
                 </a>
             </div>
@@ -783,15 +915,15 @@
 
 
     <!-- ==================== TESTIMONIALS SECTION ==================== -->
-    <section class="py-16 md:py-24 bg-surface-white border-t border-subtle-gray" id="testimonials">
-        <div class="max-w-container-max mx-auto px-margin-desktop">
+    <section class="py-12 md:py-24 bg-surface-white border-t border-subtle-gray" id="testimonials">
+        <div class="max-w-container-max mx-auto px-4 sm:px-margin-desktop">
             <div class="text-center mb-14">
                 <span class="text-danger-red font-bold text-xs uppercase tracking-widest bg-danger-red/10 px-3 py-1 rounded-full">What Clients Say</span>
                 <h2 class="font-headline-lg text-2xl md:text-4xl text-deep-navy font-bold mb-4 mt-2">Customer Testimonials</h2>
                 <p class="font-body-md text-body-md text-secondary max-w-2xl mx-auto">Real reviews from real customers who trusted Baba Pest Control for their home and business protection.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="testimonials-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
                 <!-- Testimonial 1 -->
                 <div class="bg-surface p-6 rounded-2xl border border-subtle-gray shadow-sm hover:shadow-lg transition-all duration-300 relative">
                     <div class="absolute top-4 right-5 text-4xl text-danger-red/10 font-black leading-none">"</div>
@@ -912,17 +1044,17 @@
     </section>
 
     <!-- ==================== GALLERY SECTION ==================== -->
-    <section class="py-16 md:py-24 bg-surface border-t border-subtle-gray" id="gallery">
-        <div class="max-w-container-max mx-auto px-margin-desktop">
+    <section class="py-12 md:py-24 bg-surface border-t border-subtle-gray" id="gallery">
+        <div class="max-w-container-max mx-auto px-4 sm:px-margin-desktop">
             <div class="text-center mb-14">
                 <span class="text-danger-red font-bold text-xs uppercase tracking-widest bg-danger-red/10 px-3 py-1 rounded-full">Field Work</span>
                 <h2 class="font-headline-lg text-2xl md:text-4xl text-deep-navy font-bold mb-4 mt-2">Our Gallery</h2>
                 <p class="font-body-md text-body-md text-secondary max-w-2xl mx-auto">Real field operations, award ceremonies and team moments — a glimpse inside Baba Pest Control's world-class service delivery.</p>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
                 <!-- Gallery Image 1 -->
-                <div class="group relative rounded-2xl overflow-hidden shadow-md border border-subtle-gray col-span-2 h-64 bg-slate-100">
+                <div class="gallery-wide group relative rounded-2xl overflow-hidden shadow-md border border-subtle-gray col-span-2 h-48 sm:h-64 bg-slate-100">
                     <img src="images/fogging_action.png" alt="Cold Fogging Operation" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-deep-navy/80 via-transparent to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <div>
@@ -935,7 +1067,7 @@
                 </div>
 
                 <!-- Gallery Image 2 -->
-                <div class="group relative rounded-2xl overflow-hidden shadow-md border border-subtle-gray h-64 bg-slate-100">
+                <div class="group relative rounded-2xl overflow-hidden shadow-md border border-subtle-gray h-44 sm:h-64 bg-slate-100">
                     <img src="images/team_work_1.png" alt="Anti-Termite Site Work" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-deep-navy/80 via-transparent to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <span class="text-xs text-white font-bold flex items-center gap-1">
@@ -945,7 +1077,7 @@
                 </div>
 
                 <!-- Gallery Image 3 -->
-                <div class="group relative rounded-2xl overflow-hidden shadow-md border border-subtle-gray h-64 bg-slate-100">
+                <div class="group relative rounded-2xl overflow-hidden shadow-md border border-subtle-gray h-44 sm:h-64 bg-slate-100">
                     <img src="images/team_work_2.png" alt="Technician with Equipment" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-deep-navy/80 via-transparent to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <span class="text-xs text-white font-bold flex items-center gap-1">
@@ -955,7 +1087,7 @@
                 </div>
 
                 <!-- Gallery Image 4 -->
-                <div class="group relative rounded-2xl overflow-hidden shadow-md border border-subtle-gray h-64 bg-slate-100">
+                <div class="group relative rounded-2xl overflow-hidden shadow-md border border-subtle-gray h-44 sm:h-64 bg-slate-100">
                     <img src="images/award_ceremony.png" alt="Award Ceremony" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-deep-navy/80 via-transparent to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <span class="text-xs text-white font-bold flex items-center gap-1">
@@ -965,7 +1097,7 @@
                 </div>
 
                 <!-- Gallery Image 5 -->
-                <div class="group relative rounded-2xl overflow-hidden shadow-md border border-subtle-gray h-64 bg-slate-100">
+                <div class="group relative rounded-2xl overflow-hidden shadow-md border border-subtle-gray h-44 sm:h-64 bg-slate-100">
                     <img src="images/team_work_1.png" alt="Residential Treatment" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-deep-navy/80 via-transparent to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <span class="text-xs text-white font-bold flex items-center gap-1">
@@ -975,7 +1107,7 @@
                 </div>
 
                 <!-- Gallery CTA Card -->
-                <div class="rounded-2xl bg-gradient-to-br from-deep-navy to-slate-800 h-64 flex flex-col items-center justify-center p-6 text-white text-center border border-white/10 shadow-md col-span-2 md:col-span-1">
+                <div class="gallery-wide rounded-2xl bg-gradient-to-br from-deep-navy to-slate-800 h-44 sm:h-64 flex flex-col items-center justify-center p-4 sm:p-6 text-white text-center border border-white/10 shadow-md col-span-2 md:col-span-1">
                     <span class="material-symbols-outlined text-4xl text-danger-red mb-3">photo_camera</span>
                     <h4 class="font-bold text-base mb-2">See Us In Action</h4>
                     <p class="text-xs text-slate-300 mb-4">Follow our work on social media for more real field photos &amp; videos.</p>
@@ -1183,9 +1315,9 @@
 
 <!-- Footer -->
 <footer class="bg-deep-navy border-t border-white/10 text-surface-white">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 py-12 max-w-container-max mx-auto px-margin-desktop">
+    <div class="footer-grid grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 py-10 sm:py-12 max-w-container-max mx-auto px-4 sm:px-margin-desktop">
         <!-- Brand -->
-        <div class="flex flex-col gap-4 md:col-span-1">
+        <div class="flex flex-col gap-4 col-span-2 sm:col-span-1 md:col-span-1">
             <div class="font-headline-md text-headline-md font-bold text-surface-white flex items-center gap-2">
                 <div class="w-8 h-8 rounded-md bg-danger-red flex items-center justify-center">
                     <span class="material-symbols-outlined text-white text-lg" style="font-variation-settings: 'FILL' 1;">pest_control</span>
@@ -1239,7 +1371,7 @@
 
     <!-- Copyright -->
     <div class="border-t border-white/10 py-6">
-        <div class="max-w-container-max mx-auto px-margin-desktop flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+        <div class="max-w-container-max mx-auto px-4 sm:px-margin-desktop flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-400 text-center sm:text-left">
             <p>© 2026 Baba Pest Control. All rights reserved. Professional Defense Against Infestations.</p>
             <div class="flex items-center gap-4">
                 <a href="#" class="hover:text-white">Privacy Policy</a>
@@ -1251,7 +1383,7 @@
 </footer>
 
 <!-- Floating WhatsApp & Phone Call Buttons -->
-<div class="fixed bottom-6 right-6 z-40 flex flex-col gap-3 items-center">
+<div class="floating-btns fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col gap-2 sm:gap-3 items-center">
     <!-- Phone Call Floating Button -->
     <a href="tel:+919876543210" class="w-13 h-13 bg-primary hover:bg-emerald-700 text-white rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110 p-3 relative group" title="Call Us Now (+91 98765 43210)">
         <span class="absolute -top-1 -right-1 flex h-3.5 w-3.5">
