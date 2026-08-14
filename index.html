@@ -144,6 +144,22 @@
         .modal-active {
             overflow: hidden;
         }
+        /* ===== STICKY NAV SCROLL EFFECT ===== */
+        header {
+            transition: all 0.3s ease;
+        }
+        header.scrolled {
+            height: 64px !important;
+            box-shadow: 0 4px 24px -4px rgba(15,23,42,0.15) !important;
+            background: rgba(255,255,255,0.97) !important;
+            backdrop-filter: blur(12px);
+        }
+        header.scrolled .h-20 {
+            height: 64px !important;
+        }
+        header.scrolled img {
+            transform: scale(1) !important;
+        }
         /* ===== GLOBAL RESPONSIVE FIXES ===== */
         * { box-sizing: border-box; }
         img { max-width: 100%; height: auto; }
@@ -416,10 +432,6 @@
         <a class="block text-secondary font-medium py-2 border-b border-subtle-gray" href="javascript:void(0)" onclick="toggleMobileMenu(); openCareersModal()">Careers</a>
 
         <div class="pt-2 flex flex-col gap-3">
-
-            <button onclick="openEstimatorModal(); toggleMobileMenu();" class="w-full border border-deep-navy text-deep-navy font-label-md py-3 rounded-full flex items-center justify-center gap-2 font-semibold">
-                <span class="material-symbols-outlined">calculate</span> Price Estimator
-            </button>
             <button onclick="openQuoteModal(); toggleMobileMenu();" class="w-full bg-danger-red text-white font-label-md py-3 rounded-full flex items-center justify-center gap-2 font-bold shadow">
                 <span class="material-symbols-outlined">shield</span> Request a Quote
             </button>
@@ -889,28 +901,7 @@
         </div>
     </section>
 
-    <!-- Interactive Price Estimator Banner -->
-    <section class="py-10 sm:py-12 bg-deep-navy text-white relative overflow-hidden">
-        <div class="max-w-container-max mx-auto px-4 sm:px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6 relative z-10 text-center md:text-left">
-            <div class="flex items-center gap-4 justify-center md:justify-start">
-                <div class="w-14 h-14 rounded-2xl bg-danger-red flex items-center justify-center shrink-0">
-                    <span class="material-symbols-outlined text-3xl">calculate</span>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold">Instant Price Estimator</h3>
-                    <p class="text-xs text-slate-300">Calculate estimated cost for your flat, villa, or office in 30 seconds.</p>
-                </div>
-            </div>
-            <div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto justify-center">
-                <button onclick="openEstimatorModal()" class="w-full sm:w-auto bg-danger-red hover:bg-white hover:text-danger-red text-white font-bold px-6 py-3 rounded-full text-xs transition-colors flex items-center justify-center gap-2 shadow-lg">
-                    Launch Price Calculator <span class="material-symbols-outlined text-sm">bolt</span>
-                </button>
-                <a href="tel:+919876543210" class="w-full sm:w-auto border border-white/30 hover:bg-white/10 text-white font-semibold px-6 py-3 rounded-full text-xs transition-colors flex items-center justify-center gap-2">
-                    <span class="material-symbols-outlined text-sm">call</span> Call Expert
-                </a>
-            </div>
-        </div>
-    </section>
+    <!-- Price Estimator Banner Removed -->
 
 
 
@@ -1542,6 +1533,16 @@
         drawer.classList.toggle('hidden');
     }
 
+    // ===== STICKY NAV SCROLL EFFECT =====
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
     // Modal helpers
 
     function openQuoteModal() {
@@ -1553,34 +1554,9 @@
         document.body.classList.remove('modal-active');
     }
 
-    function openEstimatorModal() {
-        document.getElementById('estimator-modal').classList.remove('hidden');
-        document.body.classList.add('modal-active');
-    }
-    function closeEstimatorModal() {
-        document.getElementById('estimator-modal').classList.add('hidden');
-        document.body.classList.remove('modal-active');
-    }
-
-    // Price Estimator Logic
-    let currentMultiplier = 1;
-    function setPropType(type, btn) {
-        document.querySelectorAll('.prop-type-btn').forEach(b => {
-            b.className = 'prop-type-btn border border-subtle-gray text-deep-navy font-bold text-xs py-2 rounded-lg';
-        });
-        btn.className = 'prop-type-btn border border-danger-red bg-danger-red/10 text-danger-red font-bold text-xs py-2 rounded-lg';
-        
-        if (type === '1bhk') currentMultiplier = 1;
-        if (type === '2bhk') currentMultiplier = 1.4;
-        if (type === 'villa') currentMultiplier = 2.2;
-        calculateEstimate();
-    }
-
-    function calculateEstimate() {
-        const base = parseInt(document.getElementById('estimator-service').value);
-        const finalPrice = Math.round(base * currentMultiplier);
-        document.getElementById('estimated-price').innerText = '₹' + finalPrice.toLocaleString('en-IN');
-    }
+    // Price Estimator removed
+    function openEstimatorModal() { /* removed */ }
+    function closeEstimatorModal() { /* removed */ }
 
     // Lead Form Handler
     function handleLeadSubmit(e) {

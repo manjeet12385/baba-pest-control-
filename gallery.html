@@ -144,6 +144,19 @@
         .modal-active {
             overflow: hidden;
         }
+        /* ===== STICKY NAV SCROLL EFFECT ===== */
+        header {
+            transition: all 0.3s ease;
+        }
+        header.scrolled {
+            height: 64px !important;
+            box-shadow: 0 4px 24px -4px rgba(15,23,42,0.15) !important;
+            background: rgba(255,255,255,0.97) !important;
+            backdrop-filter: blur(12px);
+        }
+        header.scrolled .h-20 {
+            height: 64px !important;
+        }
         /* ===== GLOBAL RESPONSIVE FIXES ===== */
         * { box-sizing: border-box; }
         img { max-width: 100%; height: auto; }
