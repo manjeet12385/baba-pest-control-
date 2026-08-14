@@ -296,6 +296,9 @@
 </head>
 <body class="bg-background text-on-background min-h-screen flex flex-col antialiased selection:bg-danger-red selection:text-white">
 
+<!-- Sticky Header Wrapper (Top Bar + Nav together) -->
+<div id="sticky-header" class="sticky top-0 z-50 transition-all duration-300">
+
 <!-- Top Bar Contact Info -->
 <div class="bg-deep-navy text-surface-white text-xs py-2 px-margin-desktop hidden sm:block border-b border-white/10">
     <div class="max-w-container-max mx-auto flex justify-between items-center">
@@ -322,7 +325,7 @@
 </div>
 
 <!-- Header / Navigation Bar -->
-<header class="bg-surface-white border-b border-subtle-gray sticky top-0 z-50 transition-all duration-200 ease-in-out shadow-sm">
+<header class="bg-surface-white border-b border-subtle-gray transition-all duration-300 ease-in-out shadow-sm">
     <div class="flex justify-between items-center h-20 max-w-container-max mx-auto px-margin-desktop">
         <!-- Logo -->
         <a href="#" class="flex items-center h-20 gap-2">
@@ -438,6 +441,7 @@
         </div>
     </div>
 </header>
+</div><!-- /sticky-header wrapper -->
 
 <main class="flex-grow" id="home">
     <!-- Hero Section -->
@@ -1535,11 +1539,11 @@
 
     // ===== STICKY NAV SCROLL EFFECT =====
     window.addEventListener('scroll', function() {
-        const header = document.querySelector('header');
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
+        const stickyHeader = document.getElementById('sticky-header');
+        if (window.scrollY > 10) {
+            stickyHeader.style.boxShadow = '0 4px 24px -4px rgba(15,23,42,0.18)';
         } else {
-            header.classList.remove('scrolled');
+            stickyHeader.style.boxShadow = 'none';
         }
     });
 
