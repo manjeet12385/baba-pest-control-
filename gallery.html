@@ -416,7 +416,28 @@
                 </video>
             </div>
         </div>
-    
+
+    <!-- Video thumbnail auto-generator -->
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            var videos = document.querySelectorAll('video.video-thumb');
+            videos.forEach(function(video) {
+                // Remove static poster so JS can set the real frame
+                video.removeAttribute('poster');
+                video.preload = 'metadata';
+                video.addEventListener('loadedmetadata', function() {
+                    // Seek to 1 second to get a real frame
+                    try { video.currentTime = 1; } catch(e) {}
+                });
+                video.addEventListener('error', function() {
+                    // If video fails, show a dark overlay with play icon
+                    video.closest('div').style.background = '#0f172a';
+                });
+                video.load();
+            });
+        });
+    </script>
+
     </div>
 </main>
 
