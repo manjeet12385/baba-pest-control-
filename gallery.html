@@ -3,9 +3,71 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Baba Pest Control - Professional Defense Against Infestations</title>
-    <meta name="description" content="Baba Pest Control offers safe, eco-friendly, and effective pest control, termite management, cold fogging, rodent control, and waterproofing services.">
-    
+
+    <!-- ===== PRIMARY SEO ===== -->
+    <title>Media Gallery | Baba Pest Control - Pest Control & Fogging Services in Action</title>
+    <meta name="description" content="Watch Baba Pest Control's real field footage — cold fogging, thermal fogging, termite treatment, rodent control & waterproofing services. Certified eco-safe pest control in Chandigarh, Punjab & Haryana.">
+    <meta name="keywords" content="pest control gallery, pest control photos, fogging videos, termite treatment images, pest control Chandigarh, cold fogging, thermal fogging, rodent control, waterproofing, baba pest control">
+    <meta name="author" content="Baba Pest Control">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://babapestcontrol.com/gallery.html">
+
+    <!-- ===== OPEN GRAPH (Facebook / WhatsApp) ===== -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Media Gallery | Baba Pest Control - Services in Action">
+    <meta property="og:description" content="Real footage of our clinical pest control treatments — fogging, termite control, rodent management & more. Certified eco-safe services in Chandigarh.">
+    <meta property="og:url" content="https://babapestcontrol.com/gallery.html">
+    <meta property="og:image" content="https://babapestcontrol.com/images/gallery_img_1.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Baba Pest Control">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- ===== TWITTER CARD ===== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Media Gallery | Baba Pest Control">
+    <meta name="twitter:description" content="Real footage of pest control treatments — fogging, termite control, rodent management. Certified eco-safe services.">
+    <meta name="twitter:image" content="https://babapestcontrol.com/images/gallery_img_1.png">
+
+    <!-- ===== GEO / LOCAL SEO ===== -->
+    <meta name="geo.region" content="IN-CH">
+    <meta name="geo.placename" content="Chandigarh, India">
+    <meta name="geo.position" content="30.7333;76.7794">
+    <meta name="ICBM" content="30.7333, 76.7794">
+
+    <!-- ===== SCHEMA.ORG STRUCTURED DATA ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Baba Pest Control",
+      "image": "https://babapestcontrol.com/images/gallery_img_1.png",
+      "url": "https://babapestcontrol.com",
+      "telephone": "+91-98765-43210",
+      "email": "info@babapestcontrol.com",
+      "description": "Professional pest control, termite management, cold fogging, rodent control and waterproofing services in Chandigarh, Punjab and Haryana.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Main Office, Commercial Complex, Sector 17",
+        "addressLocality": "Chandigarh",
+        "addressRegion": "Chandigarh",
+        "postalCode": "160017",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 30.7333,
+        "longitude": 76.7794
+      },
+      "openingHours": "Mo-Sa 08:00-20:00",
+      "priceRange": "₹₹",
+      "sameAs": [
+        "https://www.facebook.com/babapestcontrol",
+        "https://www.instagram.com/babapestcontrol"
+      ]
+    }
+    </script>
+
     <!-- Tailwind CSS with plugins -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     
@@ -164,6 +226,40 @@
         section { width: 100%; overflow-x: hidden; }
         #mobile-drawer { width: 100%; }
 
+        /* ===== GALLERY RESPONSIVE ===== */
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #E5E7EB;
+            background: #000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .gallery-item img,
+        .gallery-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ALL devices: always 2 columns */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        .gallery-item { height: 200px; }
+
+        @media (min-width: 640px) {
+            .gallery-grid { gap: 16px; }
+            .gallery-item { height: 240px; }
+        }
+
+        @media (min-width: 1024px) {
+            .gallery-grid { gap: 20px; }
+            .gallery-item { height: 280px; }
+        }
+
         @media (max-width: 480px) {
             #quote-modal > div,
             #estimator-modal > div,
@@ -180,7 +276,7 @@
 </head>
 <body class="bg-background text-on-background min-h-screen flex flex-col antialiased selection:bg-danger-red selection:text-white">
 <!-- Sticky Header Wrapper -->
-<div id="sticky-header" class="sticky top-0 z-50 transition-all duration-300">
+<div id="sticky-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
 
 <!-- Top Bar Contact Info -->
 <div class="bg-deep-navy text-surface-white text-xs py-2 px-margin-desktop hidden sm:block border-b border-white/10">
@@ -265,7 +361,8 @@
                 </div>
             </div>
 
-            <a class="text-secondary hover:text-danger-red transition-colors pb-1 border-b-2 border-transparent hover:border-danger-red" href="gallery.html">Action Gallery</a>
+            <a class="text-danger-red font-bold border-b-2 border-danger-red pb-1" href="gallery.html">Action Gallery</a>
+            <a class="text-secondary hover:text-danger-red transition-colors pb-1 border-b-2 border-transparent hover:border-danger-red" href="blog.html">Blog</a>
             <a class="text-secondary hover:text-danger-red transition-colors pb-1 border-b-2 border-transparent hover:border-danger-red" href="index.html#contact">Contact</a>
             <a href="#careers" class="text-secondary hover:text-danger-red transition-colors pb-1 border-b-2 border-transparent hover:border-danger-red" onclick="openCareersModal()">Careers</a>
         </nav>
@@ -313,7 +410,8 @@
             </div>
         </div>
 
-        <a class="block text-secondary font-medium py-2 border-b border-subtle-gray" href="gallery.html">Action Gallery</a>
+        <a class="block text-danger-red font-bold py-2 border-b border-subtle-gray" href="gallery.html">Action Gallery</a>
+        <a class="block text-secondary font-medium py-2 border-b border-subtle-gray" href="blog.html" onclick="toggleMobileMenu()">Blog</a>
         <a class="block text-secondary font-medium py-2 border-b border-subtle-gray" href="index.html#contact" onclick="toggleMobileMenu()">Contact</a>
         <a class="block text-secondary font-medium py-2 border-b border-subtle-gray" href="javascript:void(0)" onclick="toggleMobileMenu(); openCareersModal()">Careers</a>
 
@@ -326,92 +424,92 @@
 </header>
 </div><!-- /sticky-header wrapper -->
 
-<main class="min-h-screen bg-surface-container py-8 sm:py-12 md:py-20">
-    <div class="max-w-7xl mx-auto px-3 sm:px-4 md:px-8">
-        <div class="text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-black text-deep-navy mb-4">Media Gallery</h1>
-            <p class="text-lg text-secondary">Real footage of our clinical treatments</p>
+<main class="min-h-screen bg-surface-container py-6 sm:py-10 md:py-16 pt-[120px] sm:pt-[136px]">
+    <div class="max-w-7xl mx-auto px-3 sm:px-5 md:px-8">
+        <div class="text-center mb-8 sm:mb-10 md:mb-12">
+            <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-deep-navy mb-2 sm:mb-4">Media Gallery</h1>
+            <p class="text-sm sm:text-base md:text-lg text-secondary">Real footage of our clinical treatments</p>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <div class="rounded-xl overflow-hidden shadow-md border border-subtle-gray bg-black flex items-center justify-center h-72">
-                <img src="images/gallery_img_1.png" alt="Pest Control Field Work" class="w-full h-full object-cover">
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/gallery_img_1.png" alt="Pest Control Field Work">
             </div>
-            <div class="rounded-xl overflow-hidden shadow-md border border-subtle-gray bg-black flex items-center justify-center h-72">
-                <img src="images/gallery_img_2.png" alt="Pest Control Fogging" class="w-full h-full object-cover">
+            <div class="gallery-item">
+                <img src="images/gallery_img_2.png" alt="Pest Control Fogging">
             </div>
-            <div class="rounded-xl overflow-hidden shadow-md border border-subtle-gray bg-black flex items-center justify-center h-72">
-                <img src="images/gallery_img_3.png" alt="Pest Control Training" class="w-full h-full object-cover">
+            <div class="gallery-item">
+                <img src="images/gallery_img_3.png" alt="Pest Control Training">
             </div>
-            <div class="rounded-xl overflow-hidden shadow-md border border-subtle-gray bg-black flex items-center justify-center h-72">
-                <img src="images/gallery_img_4.png" alt="Pest Control Operations" class="w-full h-full object-cover">
+            <div class="gallery-item">
+                <img src="images/gallery_img_4.png" alt="Pest Control Operations">
             </div>
-            <div class="rounded-xl overflow-hidden shadow-md border border-subtle-gray bg-black flex items-center justify-center h-72">
-                <video controls preload="metadata" class="w-full h-full object-cover video-thumb" poster="images/gallery_img_1.png">
+            <div class="gallery-item">
+                <video controls preload="metadata" class="video-thumb" poster="images/gallery_img_1.png">
                     <source src="images/%23Awareness%20%23keepsafe%20%23mosquitos.mp4" type="video/mp4">
                 </video>
             </div>
-            <div class="rounded-xl overflow-hidden shadow-md border border-subtle-gray bg-black flex items-center justify-center h-72">
-                <video controls preload="metadata" class="w-full h-full object-cover video-thumb" poster="images/gallery_img_2.png">
+            <div class="gallery-item">
+                <video controls preload="metadata" class="video-thumb" poster="images/gallery_img_2.png">
                     <source src="images/%23pestcontrol%20%20%23treatment.mp4" type="video/mp4">
                 </video>
             </div>
-            <div class="rounded-xl overflow-hidden shadow-md border border-subtle-gray bg-black flex items-center justify-center h-72">
-                <video controls preload="metadata" class="w-full h-full object-cover video-thumb" poster="images/gallery_img_3.png">
+            <div class="gallery-item">
+                <video controls preload="metadata" class="video-thumb" poster="images/gallery_img_3.png">
                     <source src="images/AQNbD8cmHIDzBEgXYIG5eqXW3d7rHo6tiQSclmngiVR_KpOu6xQCbD74Zn0AZ252hOsteWRKz3qi9FoDhCL6Vs1Fw1-HzzDK.mp4" type="video/mp4">
                 </video>
             </div>
-            <div class="rounded-xl overflow-hidden shadow-md border border-subtle-gray bg-black flex items-center justify-center h-72">
-                <video controls preload="metadata" class="w-full h-full object-cover video-thumb" poster="images/gallery_img_4.png">
+            <div class="gallery-item">
+                <video controls preload="metadata" class="video-thumb" poster="images/gallery_img_4.png">
                     <source src="images/AQOjqvmsJf3NNGqpVO0XE595ju4kbM_LOb0F0Rzp6xdJuj95enhO5-r5roiVdOTfHEHHfwoQFzzfh1YNxC3cBm8_9_Ltk4i_.mp4" type="video/mp4">
                 </video>
             </div>
-            <div class="rounded-xl overflow-hidden shadow-md border border-subtle-gray bg-black flex items-center justify-center h-72">
-                <video controls preload="metadata" class="w-full h-full object-cover video-thumb" poster="images/gallery_img_1.png">
+            <div class="gallery-item">
+                <video controls preload="metadata" class="video-thumb" poster="images/gallery_img_1.png">
                     <source src="images/AQOrAejz0_hH72tX35lkMpdnsWRZZqu46m0suyvvU0V-niuBbgSR0jXXxr0N-qok3_hBZQrFxX3IydH_lhesKLQAUqDbtKXZ.mp4" type="video/mp4">
                 </video>
             </div>
-            <div class="rounded-xl overflow-hidden shadow-md border border-subtle-gray bg-black flex items-center justify-center h-72">
-                <video controls preload="metadata" class="w-full h-full object-cover video-thumb" poster="images/gallery_img_2.png">
+            <div class="gallery-item">
+                <video controls preload="metadata" class="video-thumb" poster="images/gallery_img_2.png">
                     <source src="images/AQPtqnOqj1Y1DDxCA7ksQNLxuVWphohYYOJw2Tm8Yjl3mGtATMQo7zy01aMol1pa9R3O_mBRYyHBAAcEKPQTlpIPRERQ8McR.mp4" type="video/mp4">
                 </video>
             </div>
-            <div class="rounded-xl overflow-hidden shadow-md border border-subtle-gray bg-black flex items-center justify-center h-72">
-                <video controls preload="metadata" class="w-full h-full object-cover video-thumb" poster="images/gallery_img_3.png">
+            <div class="gallery-item">
+                <video controls preload="metadata" class="video-thumb" poster="images/gallery_img_3.png">
                     <source src="images/Fogging (1).mp4" type="video/mp4">
                 </video>
             </div>
-            <div class="rounded-xl overflow-hidden shadow-md border border-subtle-gray bg-black flex items-center justify-center h-72">
-                <video controls preload="metadata" class="w-full h-full object-cover video-thumb" poster="images/gallery_img_4.png">
+            <div class="gallery-item">
+                <video controls preload="metadata" class="video-thumb" poster="images/gallery_img_4.png">
                     <source src="images/Fogging.mp4" type="video/mp4">
                 </video>
             </div>
-            <div class="rounded-xl overflow-hidden shadow-md border border-subtle-gray bg-black flex items-center justify-center h-72">
-                <video controls preload="metadata" class="w-full h-full object-cover video-thumb" poster="images/gallery_img_1.png">
+            <div class="gallery-item">
+                <video controls preload="metadata" class="video-thumb" poster="images/gallery_img_1.png">
                     <source src="images/Handy Fogging machine.mp4" type="video/mp4">
                 </video>
             </div>
-            <div class="rounded-xl overflow-hidden shadow-md border border-subtle-gray bg-black flex items-center justify-center h-72">
-                <video controls preload="metadata" class="w-full h-full object-cover video-thumb" poster="images/gallery_img_2.png">
+            <div class="gallery-item">
+                <video controls preload="metadata" class="video-thumb" poster="images/gallery_img_2.png">
                     <source src="images/Outdoor Mosquito treatment by thermal fogging.mp4" type="video/mp4">
                 </video>
             </div>
-            <div class="rounded-xl overflow-hidden shadow-md border border-subtle-gray bg-black flex items-center justify-center h-72">
-                <video controls preload="metadata" class="w-full h-full object-cover video-thumb" poster="images/gallery_img_3.png">
+            <div class="gallery-item">
+                <video controls preload="metadata" class="video-thumb" poster="images/gallery_img_3.png">
                     <source src="images/Piping%20fiting%20work%20for%20thr%20termite%20treatment%20%23piping%20%23termitetreatmentservices%20%23preconstructionw%20(1).mp4" type="video/mp4">
                 </video>
             </div>
-            <div class="rounded-xl overflow-hidden shadow-md border border-subtle-gray bg-black flex items-center justify-center h-72">
-                <video controls preload="metadata" class="w-full h-full object-cover video-thumb" poster="images/gallery_img_4.png">
+            <div class="gallery-item">
+                <video controls preload="metadata" class="video-thumb" poster="images/gallery_img_4.png">
                     <source src="images/Pre construction termite control service.mp4" type="video/mp4">
                 </video>
             </div>
-            <div class="rounded-xl overflow-hidden shadow-md border border-subtle-gray bg-black flex items-center justify-center h-72">
-                <video controls preload="metadata" class="w-full h-full object-cover video-thumb" poster="images/gallery_img_1.png">
+            <div class="gallery-item">
+                <video controls preload="metadata" class="video-thumb" poster="images/gallery_img_1.png">
                     <source src="images/Thermal fogging treatment for mosquito killing in larger basement area.mp4" type="video/mp4">
                 </video>
             </div>
-            <div class="rounded-xl overflow-hidden shadow-md border border-subtle-gray bg-black flex items-center justify-center h-72">
-                <video controls preload="metadata" class="w-full h-full object-cover video-thumb" poster="images/gallery_img_2.png">
+            <div class="gallery-item">
+                <video controls preload="metadata" class="video-thumb" poster="images/gallery_img_2.png">
                     <source src="images/Thermal%20fogging%20treatment%20in%20outdoor%20area%20for%20%20mosquitos%20control%20%23pestcontrol%20%23awareness%20%23chandi.mp4" type="video/mp4">
                 </video>
             </div>
@@ -422,17 +520,38 @@
         window.addEventListener('DOMContentLoaded', function() {
             var videos = document.querySelectorAll('video.video-thumb');
             videos.forEach(function(video) {
-                // Remove static poster so JS can set the real frame
-                video.removeAttribute('poster');
+                // Save original poster as fallback
+                var originalPoster = video.getAttribute('poster');
                 video.preload = 'metadata';
+
+                var frameLoaded = false;
+
                 video.addEventListener('loadedmetadata', function() {
-                    // Seek to 1 second to get a real frame
                     try { video.currentTime = 1; } catch(e) {}
                 });
-                video.addEventListener('error', function() {
-                    // If video fails, show a dark overlay with play icon
-                    video.closest('div').style.background = '#0f172a';
+
+                video.addEventListener('seeked', function() {
+                    // Real frame seeked successfully — remove poster to show it
+                    frameLoaded = true;
+                    video.removeAttribute('poster');
                 });
+
+                video.addEventListener('error', function() {
+                    // Video failed to load — keep/restore original poster
+                    if (originalPoster) {
+                        video.setAttribute('poster', originalPoster);
+                    } else {
+                        video.closest('div').style.background = '#0f172a';
+                    }
+                });
+
+                // Timeout fallback: if no real frame in 3s, restore poster
+                setTimeout(function() {
+                    if (!frameLoaded && originalPoster) {
+                        video.setAttribute('poster', originalPoster);
+                    }
+                }, 3000);
+
                 video.load();
             });
         });
