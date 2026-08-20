@@ -524,62 +524,53 @@
 </header>
 </div><!-- /sticky-header wrapper -->
 
-<main class="flex-grow pt-[120px] sm:pt-[128px]" id="home">
+<main class="flex-grow pt-[80px] sm:pt-[112px]" id="home">
     <!-- Hero Section -->
-    <section class="relative w-full min-h-[520px] sm:min-h-[580px] md:h-[620px] flex items-center justify-center overflow-hidden bg-deep-navy">
-        <!-- User Provided Hero Action Image Background -->
-        <div class="absolute inset-0 z-0 opacity-40">
-            <img alt="Pest Control Hero Spray Action" class="w-full h-full object-cover object-center filter brightness-90 saturate-125" src="images/fogging_action.png">
+    <section class="relative w-full h-[280px] sm:h-[380px] md:h-[450px] overflow-hidden bg-slate-900 flex items-center justify-between md:justify-center">
+        <!-- Blurred Background Image to fill widescreen space dynamically -->
+        <div class="absolute inset-0 z-0 opacity-20 blur-xl scale-110">
+            <img class="w-full h-full object-cover object-center" src="images/image copy 3.png" alt="">
         </div>
-        <!-- Gradient Overlay for readability -->
-        <div class="absolute inset-0 z-0 bg-gradient-to-t from-deep-navy via-deep-navy/80 to-deep-navy/40"></div>
 
-        <div class="relative z-10 max-w-container-max mx-auto px-4 sm:px-margin-desktop text-center text-surface-white py-12 sm:py-16">
-            <!-- Badge -->
-            <div class="hero-badge inline-flex items-center gap-2 bg-surface-white/10 backdrop-blur-md px-3 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-semibold tracking-wide text-surface-white mb-4 sm:mb-6 border border-white/20">
-                <span class="material-symbols-outlined text-danger-red text-sm">verified</span>
-                Government Certified Pest Control Service
-            </div>
+        <!-- Left Content Column (Desktop Only) -->
+        <div class="hidden md:flex relative z-10 w-[30%] lg:w-[320px] xl:w-[350px] h-full flex-col justify-center text-left pl-8 pr-4 select-none">
+            <h3 class="text-white font-headline-md text-sm lg:text-lg font-bold mb-3 flex items-center gap-2 border-b border-white/10 pb-2">
+                <span class="material-symbols-outlined text-primary text-sm lg:text-base font-bold">pest_control</span> Pest Control
+            </h3>
+            <ul class="space-y-1 text-slate-200 text-xs lg:text-sm">
+                <li><button onclick="openServiceDetail('cold_fogging')" class="hover:text-primary transition-colors text-left w-full py-1 border-b border-white/5 flex items-center justify-between group/item"><span>Cold Fogging</span> <span class="material-symbols-outlined text-[12px] opacity-0 group-hover/item:opacity-100 transition-opacity">arrow_forward</span></button></li>
+                <li><button onclick="openServiceDetail('hot_fogging')" class="hover:text-primary transition-colors text-left w-full py-1 border-b border-white/5 flex items-center justify-between group/item"><span>Hot Fogging</span> <span class="material-symbols-outlined text-[12px] opacity-0 group-hover/item:opacity-100 transition-opacity">arrow_forward</span></button></li>
+                <li><button onclick="openServiceDetail('snake')" class="hover:text-primary transition-colors text-left w-full py-1 border-b border-white/5 flex items-center justify-between group/item"><span>Snake Management</span> <span class="material-symbols-outlined text-[12px] opacity-0 group-hover/item:opacity-100 transition-opacity">arrow_forward</span></button></li>
+                <li><button onclick="openServiceDetail('spider')" class="hover:text-primary transition-colors text-left w-full py-1 border-b border-white/5 flex items-center justify-between group/item"><span>Spider Management</span> <span class="material-symbols-outlined text-[12px] opacity-0 group-hover/item:opacity-100 transition-opacity">arrow_forward</span></button></li>
+                <li><button onclick="openServiceDetail('lizard')" class="hover:text-primary transition-colors text-left w-full py-1 border-b border-white/5 flex items-center justify-between group/item"><span>Lizard Management</span> <span class="material-symbols-outlined text-[12px] opacity-0 group-hover/item:opacity-100 transition-opacity">arrow_forward</span></button></li>
+                <li><button onclick="openServiceDetail('bee')" class="hover:text-primary transition-colors text-left w-full py-1 border-b border-white/5 flex items-center justify-between group/item"><span>Honey Bee Management</span> <span class="material-symbols-outlined text-[12px] opacity-0 group-hover/item:opacity-100 transition-opacity">arrow_forward</span></button></li>
+                <li><button onclick="openServiceDetail('termite')" class="hover:text-primary transition-colors text-left w-full py-1 border-b border-white/5 flex items-center justify-between group/item"><span>Termite Management</span> <span class="material-symbols-outlined text-[12px] opacity-0 group-hover/item:opacity-100 transition-opacity">arrow_forward</span></button></li>
+                <li><button onclick="openServiceDetail('rodent')" class="hover:text-primary transition-colors text-left w-full py-1 border-b border-white/5 flex items-center justify-between group/item"><span>Rodent Management</span> <span class="material-symbols-outlined text-[12px] opacity-0 group-hover/item:opacity-100 transition-opacity">arrow_forward</span></button></li>
+            </ul>
+        </div>
 
-            <h1 class="font-headline-xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight leading-tight max-w-4xl mx-auto drop-shadow-md">
-                Your Shield Against <span class="text-danger-red underline underline-offset-8 decoration-white/20">Unwanted Guests!</span>
-            </h1>
+        <!-- Center Column: Clear Centered Banner Image that is never cropped -->
+        <div class="relative z-10 h-full flex items-center justify-center max-w-full md:w-[40%] lg:w-[675px]">
+            <img alt="Baba Pest Control Banner" class="max-w-full h-full object-contain block mx-auto" src="images/image copy 3.png">
+        </div>
 
-            <p class="font-body-lg text-base sm:text-lg md:text-xl mb-10 max-w-2xl mx-auto text-surface-container-low font-normal leading-relaxed drop-shadow">
-                Professional pest control services ensuring safe, effective removal using eco-friendly methods. Defend your residential & commercial space today.
-            </p>
-
-            <!-- CTA Buttons -->
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-md mx-auto">
-                <a href="tel:+919876543210" class="w-full sm:w-auto bg-danger-red hover:bg-primary text-surface-white font-label-md text-label-md px-8 py-4 rounded-full transition-all flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(237,27,36,0.4)] hover:scale-105 active:scale-95 font-bold">
-                    <span class="material-symbols-outlined">call</span>
-                    Get Protected Now
-                </a>
-                <button onclick="openQuoteModal()" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-surface-white border border-white/30 font-label-md text-label-md px-8 py-4 rounded-full transition-all flex items-center justify-center gap-2 backdrop-blur-md font-semibold">
-                    <span class="material-symbols-outlined text-sm">assignment</span>
-                    Free Inspection
-                </button>
-            </div>
-
-            <!-- Stats Bar -->
-            <div class="mt-10 sm:mt-14 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto border-t border-white/10 pt-6">
-                <div>
-                    <div class="text-2xl md:text-3xl font-extrabold text-white">25+</div>
-                    <div class="text-xs text-slate-300 mt-0.5">Years Experience</div>
-                </div>
-                <div>
-                    <div class="text-2xl md:text-3xl font-extrabold text-white">10,000+</div>
-                    <div class="text-xs text-slate-300 mt-0.5">Spaces Protected</div>
-                </div>
-                <div>
-                    <div class="text-2xl md:text-3xl font-extrabold text-white">100%</div>
-                    <div class="text-xs text-slate-300 mt-0.5">Safe & Eco-Friendly</div>
-                </div>
-                <div>
-                    <div class="text-2xl md:text-3xl font-extrabold text-white">4.9 ★</div>
-                    <div class="text-xs text-slate-300 mt-0.5">Customer Rating</div>
-                </div>
-            </div>
+        <!-- Right Content Column (Desktop Only) -->
+        <div class="hidden md:flex relative z-10 w-[30%] lg:w-[350px] xl:w-[400px] h-full flex-col justify-center text-left pr-8 pl-4 select-none">
+            <h3 class="text-white font-headline-md text-sm lg:text-lg font-bold mb-3">Eco-Friendly & Safe</h3>
+            <ul class="space-y-2 lg:space-y-3 mb-5 text-slate-200 text-xs lg:text-sm">
+                <li class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary text-sm lg:text-base font-bold">check_circle</span> 25+ Years Experience
+                </li>
+                <li class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary text-sm lg:text-base font-bold">check_circle</span> 10,000+ Spaces Protected
+                </li>
+                <li class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary text-sm lg:text-base font-bold">check_circle</span> 100% Safe & Certified
+                </li>
+            </ul>
+            <button onclick="openQuoteModal()" class="w-fit bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold text-xs lg:text-sm px-6 py-3 rounded-full transition-all flex items-center justify-center gap-2 backdrop-blur-md">
+                <span class="material-symbols-outlined text-sm">assignment</span> Free Inspection
+            </button>
         </div>
     </section>
 
@@ -1395,18 +1386,22 @@
         <!-- Brand -->
         <div class="flex flex-col gap-4 col-span-2 sm:col-span-1 md:col-span-1">
             <div class="font-headline-md text-headline-md font-bold text-surface-white flex items-center gap-2">
-                <div class="w-8 h-8 rounded-md bg-danger-red flex items-center justify-center">
-                    <span class="material-symbols-outlined text-white text-lg" style="font-variation-settings: 'FILL' 1;">pest_control</span>
-                </div>
+                <img src="images/baba_logo_graphic.png" alt="Baba Pest Control Logo" class="h-8 w-auto object-contain bg-white rounded-md p-1">
                 <span class="text-lg font-black">Baba <span class="text-danger-red">Pest Control</span></span>
             </div>
             <p class="font-body-md text-xs text-slate-300 leading-relaxed">
                 Professional Defense Against Infestations. Secure your premises with our clinical approach and eco-friendly certified treatments.
             </p>
             <div class="flex items-center gap-3 mt-2">
-                <a href="#" class="w-8 h-8 rounded-full bg-white/10 hover:bg-danger-red flex items-center justify-center transition-colors text-white text-xs">FB</a>
-                <a href="#" class="w-8 h-8 rounded-full bg-white/10 hover:bg-danger-red flex items-center justify-center transition-colors text-white text-xs">IG</a>
-                <a href="#" class="w-8 h-8 rounded-full bg-white/10 hover:bg-danger-red flex items-center justify-center transition-colors text-white text-xs">WA</a>
+                <a href="https://www.facebook.com/babapestcontrol01/reels/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-[#1877F2] text-white hover:opacity-90 flex items-center justify-center transition-all hover:scale-110 shadow-md" title="Follow us on Facebook">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/babapestcontrol?igsh=MXcyc2xoMjczaDB3ZQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white hover:opacity-90 flex items-center justify-center transition-all hover:scale-110 shadow-md" title="Follow us on Instagram">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="https://wa.me/919876543210?text=Hi%20Baba%20Pest%20Control,%20I%20want%20to%20book%20an%20inspection" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-[#25D366] text-white hover:opacity-90 flex items-center justify-center transition-all hover:scale-110 shadow-md" title="Chat on WhatsApp">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                </a>
             </div>
         </div>
 
